@@ -1,0 +1,41 @@
+﻿
+@model Contacts.AppService.Models.LegalPersonModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Legal Person</h2>
+
+<div class="card">
+    <div class="card-header">
+        <blockquote class="blockquote mb-0">Info</blockquote>
+    </div>
+    <div class="card-body">
+
+        <div class="col-md-12">
+
+            <div class="form-group col-md-4">
+                <label for="companyNameInput">Company name</label>
+                <input type="text" class="form-control" id="companyNameInput">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="tradeNameInput">Trade name</label>
+                <input type="text" class="form-control" id="tradeNameInput">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="cnpjInput">CNPJ</label>
+                <input type="text" class="form-control" id="cnpjInput" placeholder="99.999.999/9999-99">
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            @Html.Partial("Address")
+        </div>
+
+    </div>
+</div>
+

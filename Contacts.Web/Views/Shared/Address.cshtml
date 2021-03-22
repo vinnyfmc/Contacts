@@ -1,0 +1,53 @@
+﻿@model Contacts.AppService.Models.AddressModel
+
+<div class="card">
+    <div class="card-header">
+        <blockquote class="blockquote mb-0">Address</blockquote>
+    </div>
+    <div class="card-body">
+
+        <div class="row col-2">
+            <div class="form-group">
+                <label for="zipCodeInput">ZipCode</label>
+                @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control", @id = "zipCodeInput" })
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="countryInput">Country</label>
+                @Html.TextBoxFor(x => x.Country, new { @class = "form-control", @id = "countryInput" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="stateInput">State</label>
+                @Html.TextBoxFor(x => x.State, new { @class = "form-control", @id = "stateInput" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="cityInput">City</label>
+                @Html.TextBoxFor(x => x.City, new { @class = "form-control", @id = "cityInput" })
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-md-6">
+                <label for="address1Input">Address 1</label>
+                @Html.TextBoxFor(x => x.Address1, new { @class = "form-control", @id = "address1Input" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="address2Input">Address 2</label>
+                @Html.TextBoxFor(x => x.Address2, new { @class = "form-control", @id = "address2Input" })
+            </div>
+        </div>
+
+    </div>
+</div>
+
