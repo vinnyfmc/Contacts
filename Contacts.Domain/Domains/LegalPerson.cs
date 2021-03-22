@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Contacts.Domain.Domains
 {
@@ -21,7 +22,10 @@ namespace Contacts.Domain.Domains
 
         internal void Update(string companyName, string tradeName, string cnpj, string zipCode, string country, string state, string city, string address1, string address2)
         {
-            throw new NotImplementedException();
+            CompanyName = companyName;
+            TradeName = tradeName;
+            CNPJ = cnpj;
+            Person.Update(zipCode, country, state, city, address1, address2);
         }
     }
 }

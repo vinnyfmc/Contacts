@@ -4,23 +4,23 @@
         $("#_formSave").submit();
     });
 
-    $("#cpfInput").mask("999.999.999-99");
+    $("#cnpjInput").mask("99.999.999/9999-99");
 });
 
-function onSaveNaturalPersonSucess(data) {
+function onSaveLegalPersonSucess(data) {
 
     if (data.success) {
         Swal.fire(
-            'Natural Person',
+            'Legal Person',
             'Saved!',
             'success'
         ).then((result) => {
-            window.location.href = "/NaturalPerson/List";  
+            window.location.href = "/LegalPerson/List";  
         })
 
     } else {
         Swal.fire(
-            'Natural Person',
+            'Legal Person',
             data.msg,
             'warning'
         )
@@ -28,12 +28,12 @@ function onSaveNaturalPersonSucess(data) {
 }
 
 function Edit(id) {
-    window.location.href = "/NaturalPerson?id=" + id; 
+    window.location.href = "/LegalPerson?id=" + id; 
 }
 
-function onSaveNaturalPersonFailure() {
+function onSaveLegalPersonFailure() {
     Swal.fire(
-        'Natural Person',
+        'Legal Person',
         'Ops, sorry!',
         'error'
     )

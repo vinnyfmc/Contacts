@@ -45,7 +45,7 @@ namespace Contacts.AppService
                 naturalPersonModel.City,
                 naturalPersonModel.Address1,
                 naturalPersonModel.Address2
-            );;
+            );
         }
     }
 }

@@ -34,6 +34,10 @@ namespace Contacts.Web
             bundles.Add(new ScriptBundle("~/bundles/NaturalPerson")
                 .Include("~/Scripts/Contacts/naturalPerson.js")
                 .Include("~/Scripts/Contacts/address.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/LegalPerson")
+                .Include("~/Scripts/Contacts/legalPerson.js")
+                .Include("~/Scripts/Contacts/address.js"));
         }
     }
 }

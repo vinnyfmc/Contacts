@@ -1,11 +1,12 @@
 ﻿using Contacts.AppService;
 using Contacts.AppService.Models;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Contacts.Web.Controllers
 {
-    public class LegalPersonController : Controller
+    public class LegalPersonController : BaseController
     {
         private readonly ILegalPersonAppService legalPersonAppService;
         public LegalPersonController(ILegalPersonAppService legalPersonAppService)
@@ -32,12 +33,20 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                legalPersonAppService.Save(model);
-                return Json(new { success = true });
+                if (ModelState.IsValid)
+                {
+                    legalPersonAppService.Save(model);
+                    return GetJsonSimpleSuccess();
+                }
+                else
+                    return GetJsonErrorFromModalState();
             }
             catch (Exception ex)
             {
-                return Json(new { success = false });
+                var errors = new List<string>();
+                errors.Add("You can not save this person!");
+                errors.Add(ex.Message);
+                return GetJsonSimpleErrorToSwal(errors);
             }
         }
     }

@@ -9,33 +9,44 @@
 
 <div class="card">
     <div class="card-header">
-        <blockquote class="blockquote mb-0">Info</blockquote>
+        <blockquote class="blockquote mb-0">
+            Info
+            <button id="btnSave" type="submit" class="btn btn-sm btn-primary float-right">Save</button>
+        </blockquote>
     </div>
     <div class="card-body">
 
-        <div class="col-md-12">
+        @using (Ajax.BeginForm("Save", "LegalPerson", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "onSaveLegalPersonSucess", OnFailure = "onSaveLegalPersonFailure" }, new { @id = "_formSave" }))
+        {
 
-            <div class="form-group col-md-4">
-                <label for="companyNameInput">Company name</label>
-                <input type="text" class="form-control" id="companyNameInput">
+            @Html.HiddenFor(x => x.Id, new { Id = "Id" })
+            <div class="col-md-12">
+
+                <div class="form-group col-md-4">
+                    <label for="companyNameInput">Company name</label>
+                    @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", @id = "companyNameInput" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="tradeNameInput">Trade name</label>
+                    @Html.TextBoxFor(x => x.TradeName, new { @class = "form-control", @id = "tradeNameInput" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="cnpjInput">CNPJ</label>
+                    @Html.TextBoxFor(x => x.CNPJ, new { @class = "form-control", @id = "cnpjInput" })
+                </div>
+
             </div>
 
-            <div class="form-group col-md-4">
-                <label for="tradeNameInput">Trade name</label>
-                <input type="text" class="form-control" id="tradeNameInput">
+            <div class="col-md-12">
+                @Html.Partial("Address", Model)
             </div>
-
-            <div class="form-group col-md-4">
-                <label for="cnpjInput">CNPJ</label>
-                <input type="text" class="form-control" id="cnpjInput" placeholder="99.999.999/9999-99">
-            </div>
-
-        </div>
-
-        <div class="col-md-12">
-            @Html.Partial("Address")
-        </div>
-
+        }
     </div>
 </div>
 
+
+@section scripts{
+    @Scripts.Render("~/bundles/LegalPerson")
+}
